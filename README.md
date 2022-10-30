@@ -1,10 +1,6 @@
 # vue3-bookstore
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Exercice sur pagination, v-for, passage de param avec Vue-Router
 
 ## Customize configuration
 
@@ -27,3 +23,19 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## Decouper au mieux les éléments en components vue
+Et brancher ensuite une navigation simple accueil | Details 
+
+
+## Brancher la pagination
+Comment rendre la pagination effective? Attention à la réactivité 
+
+## Créer la page BookDetails 
+Pour afficher les informations via passage de params
+
+
+
+
+
+
