@@ -25,7 +25,7 @@ npm run build
 ```
 
 ## Decouper au mieux les éléments en components vue
-Et brancher ensuite une navigation simple accueil | Details 
+Déclarer ensuite une navigation simple accueil | Details 
 
 
 ## Brancher la pagination
