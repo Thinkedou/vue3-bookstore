@@ -1,17 +1,16 @@
 <script setup>
 import {ref,watch} from 'vue'
-import {useRoute,useRouter} from 'vue-router'
+import {useRoute}  from 'vue-router'
 import {bookstore} from '../assets/js/bookstore'
 
 import BooksCard from '../components/BooksCard.vue'
 console.log(bookstore)
 
 const route  = useRoute()
-const router = useRouter()
 
 
 const BOOKS_PER_PAGE = 8
-const localBookstore = ref(bookstore)
+
 const displayBooks   = ref(bookstore)
 
 watch(
@@ -27,7 +26,7 @@ const refreshBooksList = ()=>{
     const debut  = (page-1)*BOOKS_PER_PAGE
     const fin    = page*BOOKS_PER_PAGE
 
-    displayBooks.value = localBookstore.value.slice(debut,fin)
+    displayBooks.value = bookstore.slice(debut,fin)
 }
 
 

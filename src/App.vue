@@ -17,6 +17,7 @@ const handlePagination = page =>{
             
             <div class="tm-main-content">
                 <section class="tm-margin-b-l">
+                
                     <RouterView />
                     
                     <nav class="tm-gallery-nav">
