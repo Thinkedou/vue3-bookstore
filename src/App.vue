@@ -2,6 +2,9 @@
 import TheHeader from './components/TheHeader.vue'
 import TheFooter from './components/TheFooter.vue'
 import BooksCard from './components/BooksCard.vue'
+import {bookstore} from './assets/js/bookstore'
+
+console.log(bookstore)
 
 </script>
 
@@ -19,7 +22,10 @@ import BooksCard from './components/BooksCard.vue'
                     
                     <div class="tm-gallery">
                         <div class="row">
-                            <BooksCard />
+                            <BooksCard 
+                                title="un autre"
+                                coverUrl="1984.jpg"
+                            />
                         </div>   
                     </div>
                     

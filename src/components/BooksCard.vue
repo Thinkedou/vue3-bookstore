@@ -1,14 +1,21 @@
 <script setup>
-
+const props = defineProps({
+    title:{
+        type:String
+    },
+    coverUrl:{
+        type:String
+    }
+})
 </script>
 
 <template>
   <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
     <a href="preview.html">
         <div class="tm-gallery-item-overlay">
-            <img src="./assets/img/image-01.jpg" alt="Image" class="img-fluid tm-img-center">
+            <img :src="'src/assets/img/'+coverUrl" alt="Image" class="img-fluid tm-img-center">
         </div>
-        <p class="tm-figcaption">Book title</p>
+        <p class="tm-figcaption">{{title}}</p>
     </a>
 </figure>
 </template>
