@@ -1,5 +1,6 @@
 <script setup>
 import {ref,computed} from 'vue'
+import {useRoute,useRouter} from 'vue-router'
 
 import TheHeader from './components/TheHeader.vue'
 import TheFooter from './components/TheFooter.vue'
@@ -8,6 +9,9 @@ import {bookstore} from './assets/js/bookstore'
 
 console.log(bookstore)
 
+const route  = useRoute()
+const router = useRouter()
+
 
 const localBookstore = ref(bookstore)
 
@@ -15,7 +19,9 @@ const displayBooks = computed(()=>{
     return localBookstore.value.slice(0,8)
 })
 
-
+const handlePagination = page =>{
+    router.push({query:{page:page}})
+}
 
 
 </script>
@@ -45,8 +51,8 @@ const displayBooks = computed(()=>{
                     
                     <nav class="tm-gallery-nav">
                         <ul class="nav justify-content-center">
-                            <li class="nav-item"><a class="nav-link active" href="#">1</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">2</a></li>
+                            <li class="nav-item" @click="handlePagination(1)"><span class="nav-link active" >1</span></li>
+                            <li class="nav-item" @click="handlePagination(2)" ><span class="nav-link">2</span></li>
                             <li class="nav-item"><a class="nav-link" href="#">3</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">4</a></li>                    
                         </ul>
