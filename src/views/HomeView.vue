@@ -1,12 +1,13 @@
 <script setup>
 import {ref,watch} from 'vue'
-import {useRoute}  from 'vue-router'
+import {useRoute,useRouter}  from 'vue-router'
 import {bookstore} from '../assets/js/bookstore'
 
 import BooksCard from '../components/BooksCard.vue'
 console.log(bookstore)
 
-const route  = useRoute()
+const route   = useRoute()
+const router  = useRouter()
 
 
 const BOOKS_PER_PAGE = 8
@@ -29,6 +30,9 @@ const refreshBooksList = ()=>{
     displayBooks.value = bookstore.slice(debut,fin)
 }
 
+const handleOpenDetails = (bookId)=>{
+  router.push({name:'details',params:{bookId}})
+}
 
 </script>
 
@@ -46,6 +50,7 @@ const refreshBooksList = ()=>{
               :key="book.id"
               :title="book.title"
               :coverUrl="book.cover"
+              @click="handleOpenDetails(book.id)"
           />
       </div>   
   </div>
