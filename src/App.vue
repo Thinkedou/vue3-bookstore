@@ -13,28 +13,28 @@ const route  = useRoute()
 const router = useRouter()
 
 
+const BOOKS_PER_PAGE = 8
+const localBookstore = ref(bookstore)
+const displayBooks   = ref(bookstore)
+
 watch(
   () => route,
-  (newValue, oldValue) => {
-
-
+  () => {
     refreshBooksList()
-
-
   },
   { deep: true }
 )
 
 const refreshBooksList = ()=>{
-    console.log('on va refresh avec la page: ', route.query.page)
+    const {page} = route.query 
+    const debut  = (page-1)*BOOKS_PER_PAGE
+    const fin    = page*BOOKS_PER_PAGE
+
+    displayBooks.value = localBookstore.value.slice(debut,fin)
+
+
 }
 
-const localBookstore = ref(bookstore)
-
-const displayBooks = computed(()=>{
-
-    return localBookstore.value.slice(0,8)
-})
 
 const handlePagination = page =>{
     router.push({query:{page:page}})
@@ -68,10 +68,11 @@ const handlePagination = page =>{
                     
                     <nav class="tm-gallery-nav">
                         <ul class="nav justify-content-center">
+
                             <li class="nav-item" @click="handlePagination(1)"><span class="nav-link active" >1</span></li>
                             <li class="nav-item" @click="handlePagination(2)" ><span class="nav-link">2</span></li>
-                            <li class="nav-item" @click="handlePagination(3)"><a class="nav-link" href="#">3</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">4</a></li>                    
+                            <li class="nav-item" @click="handlePagination(3)"><span class="nav-link" >3</span></li>
+
                         </ul>
                     </nav>
                 </section>
