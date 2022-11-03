@@ -1,10 +1,22 @@
 <script setup>
+import {ref,computed} from 'vue'
+
 import TheHeader from './components/TheHeader.vue'
 import TheFooter from './components/TheFooter.vue'
 import BooksCard from './components/BooksCard.vue'
 import {bookstore} from './assets/js/bookstore'
 
 console.log(bookstore)
+
+
+const localBookstore = ref(bookstore)
+
+const displayBooks = computed(()=>{
+    return localBookstore.value.slice(0,8)
+})
+
+
+
 
 </script>
 
@@ -23,8 +35,10 @@ console.log(bookstore)
                     <div class="tm-gallery">
                         <div class="row">
                             <BooksCard 
-                                title="un autre"
-                                coverUrl="1984.jpg"
+                                v-for="book in displayBooks"
+                                :key="book.id"
+                                :title="book.title"
+                                :coverUrl="book.cover"
                             />
                         </div>   
                     </div>
